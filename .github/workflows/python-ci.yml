@@ -27,7 +27,7 @@ jobs:
 
     - name: Run tests
       env:
-        PYTHONPATH: .
+        PYTHONPATH: .Backend 
       run: pytest
 
 
