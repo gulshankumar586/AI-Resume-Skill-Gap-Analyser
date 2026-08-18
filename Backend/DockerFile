@@ -1,0 +1,15 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY Backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application source code
+COPY Backend/ .
+
+EXPOSE 8000
+
+# Update this command to match your framework (e.g., FastAPI/Uvicorn, Flask, or Django)
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
