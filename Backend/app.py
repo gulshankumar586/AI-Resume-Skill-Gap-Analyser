@@ -13,6 +13,10 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+@app.route("/")
+def home():
+    return jsonify({"message": "AI Resume Skill Gap Analyser API"}), 200
+
 @app.route("/analyze", methods=["POST"])
 def analyze():
     file = request.files["resume"]
