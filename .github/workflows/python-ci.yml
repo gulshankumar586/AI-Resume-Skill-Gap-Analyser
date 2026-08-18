@@ -73,9 +73,10 @@ jobs:
           type=raw,value=latest
 
     - name: Build and Push Docker image
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
+        file: ./Backend/DockerFile
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
